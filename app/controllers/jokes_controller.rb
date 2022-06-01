@@ -34,7 +34,17 @@ class JokesController < ApplicationController
     end
 
     def random
-        @joke = Joke.all.sample
+        if params[:category]
+            puts "Searching for #{params[:category]}..."
+            count = Joke.find_by_category(params[:category]).count
+            if count == 0
+                return render json: {error: "No jokes of that category"}, status: 404
+            end
+            @joke = Joke.find_by_category(params[:category]).offset(rand(count)).first
+        else
+            offset = rand(Joke.count)
+            @joke = Joke.offset(offset).first
+        end
         render json: @joke, status: 200
     end
 

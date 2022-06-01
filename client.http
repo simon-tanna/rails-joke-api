@@ -40,5 +40,11 @@ DELETE http://localhost:3000/api/jokes/1
 ### Unsuccessfully delete joke with id 1000
 DELETE http://localhost:3000/api/jokes/1000
 
-### get random joke
-GET http://localhost:3000/api/jokes/random
+### get random joke that is a pun
+GET http://localhost:3000/api/jokes/random?category=puns
+
+### get random joke that is a programming joke
+GET http://localhost:3000/api/jokes/random?category=programming
+
+### unsuccessfully get random joke from a category that doesnt exist
+GET http://localhost:3000/api/jokes/random?category=funnyones
