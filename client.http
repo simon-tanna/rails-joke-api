@@ -1,2 +1,41 @@
 ### Index method
 GET http://localhost:3000/api/jokes
+
+### Test successfully posts a joke
+POST http://localhost:3000/api/jokes
+Content-Type: application/json
+
+{
+    "category_id": 1,
+    "body": "The furniture store keeps calling me to come back, but all I wanted was one night stand"
+}
+
+### Test unsuccessfully posts a joke
+POST http://localhost:3000/api/jokes
+Content-Type: application/json
+
+{
+    "body": "The furniture store keeps calling me to come back, but all I wanted was one night stand"
+}
+
+### Show joke id: 1
+GET http://localhost:3000/api/jokes/1
+
+### Unsuccessfully show joke id: 1000
+GET http://localhost:3000/api/jokes/1000
+
+
+### successfully update joke 1
+PUT http://localhost:3000/api/jokes/1
+Content-Type: application/json
+
+{
+    "body": "A programming joke",
+    "category_id": 2
+}
+
+### Delete joke with id 1
+DELETE http://localhost:3000/api/jokes/1
+
+### Unsuccessfully delete joke with id 1000
+DELETE http://localhost:3000/api/jokes/1000
