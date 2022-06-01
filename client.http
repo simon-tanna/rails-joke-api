@@ -48,3 +48,34 @@ GET http://localhost:3000/api/jokes/random?category=programming
 
 ### unsuccessfully get random joke from a category that doesnt exist
 GET http://localhost:3000/api/jokes/random?category=funnyones
+
+
+### create user
+POST http://localhost:3000/api/auth/sign_up
+Content-Type: application/json
+
+{
+    "username": "Simon3",
+    "email": "simon3@test.com",
+    "password": "password2",
+    "password_confirmation": "password2"
+}
+
+
+### sign_in with correct details
+POST http://localhost:3000/api/auth/sign_in
+Content-Type: application/json
+
+{
+    "email": "simon3@test.com",
+    "password": "password2"
+}
+
+### unsuccessful sign in with incorrect details
+POST http://localhost:3000/api/auth/sign_in
+Content-Type: application/json
+
+{
+    "email": "simon3@test.com",
+    "password": "password3"
+}
