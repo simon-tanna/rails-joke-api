@@ -8,6 +8,11 @@
 
 joke_category = ["Puns", "Programming", "Knock Knock", "Limericks"]
 
+if User.count == 0 
+    User.create(username: "Simon1", email: "simon1@test.com", password: "password1", password_confirmation: "password1")
+    User.create(username: "Simon2", email: "simon2@test.com", password: "password2", password_confirmation: "password2")
+end
+
 if Category.all.length == 0
     joke_category.each do |category|
         Category.create(name: category)
@@ -16,12 +21,12 @@ if Category.all.length == 0
 end
 
 if Joke.all.length == 0 
-    Joke.create(category_id: 1, body: "A good steak pun is a rare medium done well")
-    Joke.create(category_id: 1, body: "I was wondering why the ball was getting bigger. Then it hit me") 
-    Joke.create(category_id: 1, body: "What’s the difference between a hippo and a zippo? One is really heavy and the other is a little lighter")
-    Joke.create(category_id: 1, body: "I tried to sue the airline for losing my luggage. I lost my case")
-    Joke.create(category_id: 2, body: "In order to understand recursion you must first understand recursion.")
-    Joke.create(category_id: 2, body: "A programmer is heading out to the grocery store, so his wife tells him \"get a gallon of milk, and if they have eggs, get a dozen.\" He returns with 13 gallons of milk.")
-    Joke.create(category_id: 2, body: "Why do programmers give you a gift on Halloween? Because OCT 30 == DEC 25")
+    Joke.create(user_id: 1, category_id: 1, body: "A good steak pun is a rare medium done well")
+    Joke.create(user_id: 1, category_id: 1, body: "I was wondering why the ball was getting bigger. Then it hit me") 
+    Joke.create(user_id: 1, category_id: 1, body: "What’s the difference between a hippo and a zippo? One is really heavy and the other is a little lighter")
+    Joke.create(user_id: 1, category_id: 1, body: "I tried to sue the airline for losing my luggage. I lost my case")
+    Joke.create(user_id: 2, category_id: 2, body: "In order to understand recursion you must first understand recursion.")
+    Joke.create(user_id: 2, category_id: 2, body: "A programmer is heading out to the grocery store, so his wife tells him \"get a gallon of milk, and if they have eggs, get a dozen.\" He returns with 13 gallons of milk.")
+    Joke.create(user_id: 2, category_id: 2, body: "Why do programmers give you a gift on Halloween? Because OCT 30 == DEC 25")
 end
 
