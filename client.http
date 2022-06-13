@@ -4,6 +4,7 @@ GET http://localhost:3000/api/jokes
 ### Test successfully posts a joke
 POST http://localhost:3000/api/jokes
 Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NTUxNzAyODEsInN1YiI6MX0.vjTp15CZt6SP2xGBN6nfDLPt2IQarGsipsXIVt-8imE
 
 {
     "category_id": 1,
@@ -28,7 +29,7 @@ GET http://localhost:3000/api/jokes/1000
 ### successfully update joke 1
 PUT http://localhost:3000/api/jokes/1
 Content-Type: application/json
-
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NTUxNzAyODEsInN1YiI6MX0.vjTp15CZt6SP2xGBN6nfDLPt2IQarGsipsXIVt-8imE
 {
     "body": "A programming joke",
     "category_id": 2
@@ -55,8 +56,8 @@ POST http://localhost:3000/api/auth/sign_up
 Content-Type: application/json
 
 {
-    "username": "Simon3",
-    "email": "simon3@test.com",
+    "username": "Simon6",
+    "email": "simon6@test.com",
     "password": "password2",
     "password_confirmation": "password2"
 }

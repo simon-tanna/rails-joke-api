@@ -1,6 +1,7 @@
 class JokesController < ApplicationController
     before_action :authenticate_user, except: [:index, :random, :show]
     before_action :set_joke, only: [:show, :update, :destroy]
+    before_action :check_ownership, only: [:update, :destroy]
 
     def index
         @jokes = Joke.all
@@ -8,7 +9,7 @@ class JokesController < ApplicationController
     end
 
     def create
-        @joke = Joke.create(joke_params)
+        @joke = current_user.jokes.create(joke_params)
         if @joke.errors.any?
             render json: @joke.errors, status: :unprocessable_entity
         else
@@ -17,7 +18,7 @@ class JokesController < ApplicationController
     end
 
     def show
-        render json: @joke
+        render json: @joke.transform_joke
     end
 
     def update
@@ -60,6 +61,12 @@ class JokesController < ApplicationController
             @joke = Joke.find(params[:id])
         rescue
             render json: {error: "Joke not found"}, status: 404
+        end
+    end
+
+    def check_ownership
+        if current_user.id != @joke.user.id
+            render json: {error: "You don't have permission to do that"}, status: 401 
         end
     end
 end

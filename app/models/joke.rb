@@ -7,4 +7,14 @@ class Joke < ApplicationRecord
     return self.where(category: category)
   end
 
+  def transform_joke
+    return {
+     author: self.user.username,
+     category: self.category.name,
+     body: self.body,
+     posted: self.created_at,
+     edited: self.updated_at
+    }
+  end
+
 end
