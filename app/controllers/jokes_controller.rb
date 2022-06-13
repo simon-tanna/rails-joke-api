@@ -1,5 +1,5 @@
 class JokesController < ApplicationController
-    before_action :authenticate_user, except [:index, :random, :show]
+    before_action :authenticate_user, except: [:index, :random, :show]
     before_action :set_joke, only: [:show, :update, :destroy]
 
     def index
