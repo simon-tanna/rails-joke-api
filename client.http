@@ -80,3 +80,6 @@ Content-Type: application/json
     "email": "simon3@test.com",
     "password": "password3"
 }
+
+### Get categories
+GET http://localhost:3000/api/categories
